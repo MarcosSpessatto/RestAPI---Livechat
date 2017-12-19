@@ -1,4 +1,4 @@
-# RestAPI - Livechat [![Build Status](https://travis-ci.org/MarcosSpessatto/RestAPI-Livechat.svg?branch=master)](https://travis-ci.org/MarcosSpessatto/RestAPI-Livechat)
+# RestAPI - Livechat [![Build Status](https://travis-ci.org/MarcosSpessatto/RestAPI-Livechat.svg?branch=master)](https://travis-ci.org/MarcosSpessatto/RestAPI-Livechat) [![Coverage Status](https://coveralls.io/repos/github/MarcosSpessatto/RestAPI-Livechat/badge.svg?branch=master)](https://coveralls.io/github/MarcosSpessatto/RestAPI-Livechat?branch=master)
 <p align="center">
   <img width="200" height="200" src="https://d14xs1qewsqjcd.cloudfront.net/assets/logo.svg">
 </p>
