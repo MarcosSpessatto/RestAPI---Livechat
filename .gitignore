@@ -1,0 +1,5 @@
+node_modules/
+.idea/
+coverage-unit/
+.nyc_output/
+tests/coverage-unit

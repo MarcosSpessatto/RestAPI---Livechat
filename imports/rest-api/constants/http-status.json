@@ -1,0 +1,5 @@
+{
+  "badRequest": 400,
+  "notFound": 404,
+  "success": 200
+}

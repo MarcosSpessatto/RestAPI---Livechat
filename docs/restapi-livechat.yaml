@@ -1,0 +1,275 @@
+swagger: "2.0"
+info:
+  description: "This is a little example of an RestAPI using MeteorJS And Iron Router,  RestAPI - LiveChat"
+  version: "1.0.0"
+  title: "RestAPI - Livechat"
+  contact:
+    email: "marcos.defendicc@gmail.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+
+host: "localhost:3000"
+basePath: "/v1/livechat"
+tags:
+- name: "department"
+  description: "Operations with departments"
+schemes:
+- "http"
+paths:
+  /department:
+    post:
+      tags:
+      - "department"
+      summary: "Add a new department with your agents"
+      operationId: "insertDepartment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "An object with department and agents array"
+        required: true
+        schema:
+          $ref: "#/definitions/InsertObject"
+      responses:
+        200:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/ResponseInsertUpdate"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+    get:
+      tags:
+      - "department"
+      summary: "Find all departments"
+      description: "An Array with all departments"
+      operationId: "findAll"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/ResponseList"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+  /department/{id}:
+    put:
+      tags:
+      - "department"
+      summary: "Update an existing department"
+      description: "An object with department and agents array"
+      operationId: "updateDepartment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id of department to be update"
+        type: "string"
+        required: true
+      - in: "body"
+        name: "body"
+        description: "An object with department and agents array"
+        required: true
+        schema:
+          $ref: "#/definitions/InsertObject"
+      responses:
+        200:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/ResponseInsertUpdate"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/ErrorNotFound"
+    get:
+      tags:
+      - "department"
+      summary: "Find Department by id"
+      description: "Return one Department with yours agents"
+      operationId: "findDepartmentById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id of department to be get info"
+        type: "string"
+        required: true
+      responses:
+        200:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/ResponseInsertUpdate"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/ErrorNotFound"
+    delete:
+      tags:
+      - "department"
+      summary: "Remove Department by id"
+      description: "Remove an Department by id"
+      operationId: "removeDepartmentById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id of department to be remove"
+        type: "string"
+        required: true
+      responses:
+        200:
+          description: "Successfull operation"
+          schema:
+            $ref: '#/definitions/SuccessObject'
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/ErrorNotFound"
+definitions:
+  Success:
+    type: "boolean"
+    example: true
+  SuccessObject:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: true
+  Error:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: false
+      message:
+        type: "string"
+  ErrorNotFound:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: false
+      message:
+        type: "string"
+        example: "Ops, the department is not found"
+  ResponseList:
+    type: "object"
+    properties:
+      departments:
+        type: "array"
+        items:
+          $ref: "#/definitions/Department"
+      success:
+        $ref: '#/definitions/Success'
+  ResponseInsertUpdate:
+    type: "object"
+    properties:
+      department:
+        $ref: "#/definitions/Department"
+      agents:
+        type: "array"
+        items:
+          $ref: "#/definitions/Agent"
+      success:
+        $ref: '#/definitions/Success'
+  Agent:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      departmentId:
+        type: "string"
+      _updatedAt:
+        type: "string"
+      agentId:
+        type: "string"
+      username:
+        type: "string"
+      count:
+        type: "integer"
+      order:
+        type: "integer"
+  Department:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      enabled:
+        type: "boolean"
+      showOnRegistration:
+        type: "boolean"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      numAgents:
+        type: "integer"
+      _updatedAt:
+        type: "string"
+  AgentForInsert:
+    type: "object"
+    required:
+      - "agentId"
+      - "username"
+      - "count"
+      - "order"
+    properties:
+      agentId:
+        type: "string"
+      username:
+        type: "string"
+      count:
+        type: "integer"
+      order:
+        type: "integer"
+  DepartmentForInsert:
+    type: "object"
+    required:
+      - "enabled"
+      - "showOnRegistration"
+      - "name"
+    properties:
+      enabled:
+        type: "boolean"
+      showOnRegistration:
+        type: "boolean"
+      name:
+        type: "string"
+      description:
+        type: "string"
+  InsertObject:
+    type: "object"
+    required:
+    - "department"
+    properties:
+      department:
+        $ref: "#/definitions/DepartmentForInsert"
+      agents:
+        type: "array"
+        items:
+          $ref: "#/definitions/AgentForInsert"

@@ -1,0 +1,8 @@
+{
+  "departmentNotFound": "Ops, the department is not found",
+  "errorOnDelete": "An error occurs while trying delete",
+  "errorOnFind": "An error occurs while trying find",
+  "errorOnInsert": "An error occurs while trying insert",
+  "errorOnUpdate": "An error occurs while trying update",
+  "verifyParameters": "Wrong parameters, please verify the documentation"
+}
