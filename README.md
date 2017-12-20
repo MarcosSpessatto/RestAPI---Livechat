@@ -16,7 +16,7 @@ This is a little example of an RestAPI using [MeteorJS](https://www.meteor.com/)
 ### Getting Started
 
     # Get the repo
-    git clone https://github.com/MarcosSpessatto/apirestmeteor.git
+    git clone https://github.com/MarcosSpessatto/RestAPI-Livechat.git
     
     # Change directory
     cd restapi-livechat
