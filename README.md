@@ -39,7 +39,7 @@ This is a little example of an RestAPI using [MeteorJS](https://www.meteor.com/)
     npm run test:integration - Single run
    
    ### Documentation
-  - [RestAPI - Livechat](https://www.meteor.com/install)
+  - [RestAPI - Livechat](https://marcosspessatto.github.io/RestAPI-Livechat/)
 
 
    ### License
