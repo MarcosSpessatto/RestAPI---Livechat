@@ -19,7 +19,7 @@ This is a little example of an RestAPI using [MeteorJS](https://www.meteor.com/)
     git clone https://github.com/MarcosSpessatto/RestAPI-Livechat.git
     
     # Change directory
-    cd restapi-livechat
+    cd RestAPI-Livechat
     
     # Install Meteor dependencies(with admin roles)
     meteor npm install
